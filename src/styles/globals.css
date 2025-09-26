@@ -1,0 +1,504 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  /* Kolam AI Color Scheme: soft ivory, red, indigo, gold */
+  --background: #faf8f5; /* soft ivory */
+  --foreground: #1a1b3a; /* deep indigo for text */
+  --card: #ffffff;
+  --card-foreground: #1a1b3a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1b3a;
+  --primary: #c41e3a; /* vibrant red */
+  --primary-foreground: #ffffff;
+  --secondary: #3b4371; /* soft indigo */
+  --secondary-foreground: #ffffff;
+  --muted: #f0ebe5; /* muted ivory */
+  --muted-foreground: #6b7280;
+  --accent: #d4af37; /* gold accent */
+  --accent-foreground: #1a1b3a;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: rgba(196, 30, 58, 0.1); /* red border with opacity */
+  --input: transparent;
+  --input-background: #f8f6f3;
+  --switch-background: #e5ddd4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #c41e3a;
+  --chart-1: #c41e3a;
+  --chart-2: #3b4371;
+  --chart-3: #d4af37;
+  --chart-4: #8b5a3c;
+  --chart-5: #6366f1;
+  --radius: 0.875rem; /* More rounded for cultural aesthetic */
+  --sidebar: #f8f6f3;
+  --sidebar-foreground: #1a1b3a;
+  --sidebar-primary: #c41e3a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0ebe5;
+  --sidebar-accent-foreground: #1a1b3a;
+  --sidebar-border: rgba(196, 30, 58, 0.1);
+  --sidebar-ring: #c41e3a;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* High contrast mode styles */
+.high-contrast {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #333333;
+  --secondary-foreground: #ffffff;
+  --muted: #2a2a2a;
+  --muted-foreground: #cccccc;
+  --accent: #ffffff;
+  --accent-foreground: #000000;
+  --destructive: #ff0000;
+  --destructive-foreground: #ffffff;
+  --border: #ffffff;
+  --input: #2a2a2a;
+  --input-background: #1a1a1a;
+  --switch-background: #333333;
+  --ring: #ffffff;
+}
+
+.high-contrast * {
+  border-color: #ffffff !important;
+}
+
+.high-contrast .bg-background {
+  background-color: #000000 !important;
+}
+
+.high-contrast .text-foreground {
+  color: #ffffff !important;
+}
+
+.high-contrast .bg-card {
+  background-color: #1a1a1a !important;
+}
+
+.high-contrast .border-border {
+  border-color: #ffffff !important;
+}
+
+/* Floating Kolam Bot styles */
+.floating-bot-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
+}
+
+.floating-bot-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(196, 30, 58, 0.4);
+}
+
+.floating-bot-button:active {
+  transform: translateY(0);
+}
+
+/* Ensure floating bot is accessible on smaller screens */
+@media (max-height: 600px) {
+  .floating-bot-button {
+    bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .floating-bot-button {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}
+
+/* Reduced motion styles */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Text size utilities */
+.text-size-small {
+  --font-size: 14px;
+}
+
+.text-size-medium {
+  --font-size: 16px;
+}
+
+.text-size-large {
+  --font-size: 18px;
+}
+
+.text-size-extra-large {
+  --font-size: 20px;
+}
+
+/* Learning Path Styling */
+.learning-path-container {
+  padding: 1.5rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-path-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 246, 243, 0.8) 100%);
+  border: 1px solid rgba(196, 30, 58, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.learning-path-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.learning-path-card:hover::before {
+  opacity: 1;
+}
+
+.learning-path-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(196, 30, 58, 0.15);
+  border-color: rgba(196, 30, 58, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 246, 243, 0.95) 100%);
+}
+
+.learning-path-icon {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+  transition: all 0.2s ease;
+}
+
+.learning-path-card:hover .learning-path-icon {
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.15) 0%, rgba(212, 175, 55, 0.15) 100%);
+  transform: scale(1.05);
+}
+
+.skill-progress-item {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(240, 235, 229, 0.6) 0%, rgba(248, 246, 243, 0.4) 100%);
+  border: 1px solid rgba(196, 30, 58, 0.1);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.skill-progress-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 0 4px 4px 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.skill-progress-item:hover::before {
+  opacity: 1;
+}
+
+.skill-progress-item:hover {
+  background: linear-gradient(135deg, rgba(240, 235, 229, 0.8) 0%, rgba(248, 246, 243, 0.6) 100%);
+  border-color: rgba(196, 30, 58, 0.2);
+  transform: translateX(4px);
+}
+
+.wisdom-card-content {
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 246, 243, 0.6) 100%);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(196, 30, 58, 0.1);
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.wisdom-card-content::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Progress bar enhancements */
+.skill-progress-item .h-2 {
+  background: rgba(240, 235, 229, 0.8);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress-item .h-2 > div {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: all 0.3s ease;
+}
+
+/* Badge enhancements for skill levels */
+.skill-progress-item .bg-primary\/10 {
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+  backdrop-filter: blur(4px);
+}
+
+/* Smooth animations for learning path interactions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.learning-path-container > * {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.learning-path-container > *:nth-child(1) { animation-delay: 0.1s; }
+.learning-path-container > *:nth-child(2) { animation-delay: 0.2s; }
+.learning-path-container > *:nth-child(3) { animation-delay: 0.3s; }
+.learning-path-container > *:nth-child(4) { animation-delay: 0.4s; }
+.learning-path-container > *:nth-child(5) { animation-delay: 0.5s; }
+.learning-path-container > *:nth-child(6) { animation-delay: 0.6s; }
+.learning-path-container > *:nth-child(7) { animation-delay: 0.7s; }
+.learning-path-container > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* Skill progress animations */
+.skill-progress-item {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.skill-progress-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-progress-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-progress-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-progress-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Dot indicator animation */
+.skill-progress-item .w-2.h-2 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced focus states for accessibility */
+.learning-path-card:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+.skill-progress-item:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .learning-path-container {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .learning-path-card {
+    padding: 1rem 1.25rem;
+  }
+  
+  .skill-progress-item {
+    padding: 0.75rem 1rem;
+  }
+  
+  .wisdom-card-content {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .learning-path-container > *,
+  .skill-progress-item {
+    animation: none;
+  }
+  
+  .learning-path-card,
+  .skill-progress-item,
+  .learning-path-icon {
+    transition: none;
+  }
+}
